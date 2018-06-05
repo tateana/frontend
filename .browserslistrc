@@ -1,0 +1,8 @@
+# Browsers that we support
+
+[production staging]
+last 4 version
+
+[development]
+> 1%
+ie 10

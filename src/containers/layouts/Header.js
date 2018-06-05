@@ -1,16 +1,22 @@
 import React, {Component} from "react";
-import styles from './Header.css'
-import hero from '../../media/hero.jpg'
+import { connect } from "react-redux";
+import styles from './Header.scss'
+import logo from '../../media/logo-white.png'
+import Button from '../../components/Button'
+import {showMessage} from '../../actions'
+
 import CssModules from 'react-css-modules';
 
 class Header extends Component {
-    render() {
-      return (
-        <header styleName='header'>Header with css
-
-        </header>
-      )
-   }
+  render() {
+    return (
+      <header styleName='header'>
+        <div styleName='logo-box'>
+          <img src={logo} alt="Logo" styleName='logo' />
+        </div>
+      </header>
+    )
+  }
 }
 
-export default CssModules(Header, styles);
+export default connect(null, {showMessage})(CssModules(Header, styles));

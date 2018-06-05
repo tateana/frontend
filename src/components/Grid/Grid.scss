@@ -1,0 +1,56 @@
+@import "../share/variables.scss";
+@import "../share/mixins.scss";
+
+.row {
+    max-width: $grid-width;
+    margin: 0 auto;
+    display: flex;
+    
+    @include clearfix;
+}
+
+.row:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+}
+
+.col {
+    float: left;
+    width: 100%;
+}
+
+.col:not(:last-child) {
+    margin-right: $gutter-horizontal;
+}
+
+// .col-2-of-3 {
+//     composes: col;
+//     width: calc(2 * (100% - 2*#{$gutter-horizontal}) / 3 + 1 * #{$gutter-horizontal});
+// }
+
+.col-1-of-#{$gutter-horizontal} {
+    composes: col;
+    width: calc((100% - 1*#{$gutter-horizontal}) / 4);
+}
+
+@mixin calc-col($col, $of) {  
+    .col-#{$col}-of-#{$of} {
+        @extend .col;
+        width: calc(#{$col} * (100% - (#{$of} - 1) * #{$gutter-horizontal}) / #{$of} + (#{$col} - 1) * #{$gutter-horizontal});
+    } 
+}
+
+@mixin generate-cols($by) {
+    @for $i from 1 through $by {
+      @include calc-col($i, $by+1);
+    }
+}
+
+@include generate-cols(1);
+@include generate-cols(2);
+@include generate-cols(3);
+
+
+
+
+
+

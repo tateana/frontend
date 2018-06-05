@@ -1,0 +1,51 @@
+@import "../../components/share/variables.scss";
+@import "../../components/share/animations.scss";
+@import "../../components/share/typography.scss";
+
+.main {
+    height: 85vh;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)),
+        url("../../media/hero-small.jpg");
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+    height: 3rem;
+}
+
+.logo {
+    height: 3.5rem;
+}
+
+.heading-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.heading-animated {
+    composes: heading-primary;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+.heading-sub-animated {
+    composes: heading-primary-sub;
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    margin-bottom: 6rem;
+}
+

@@ -1,0 +1,27 @@
+@import "../../components/share/variables.scss";
+@import "../../components/share/animations.scss";
+@import "../../components/share/typography.scss";
+
+.header {
+    height: 10rem;
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8));
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 2px, 0 100%);
+}
+
+.logo-box {
+    position: absolute;
+    top: 3rem;
+    left: 4rem;
+    height: 2rem;
+}
+
+.logo {
+    height: 3.5rem;
+}
+

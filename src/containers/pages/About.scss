@@ -1,0 +1,19 @@
+
+@import "../../components/share/variables.scss";
+@import "../../components/share/typography.scss";
+
+.main {
+    background-color: $page-background;
+    padding: 25rem 0;
+    margin-top: -15vh;
+}
+
+.heading {
+    composes: heading-secondary;
+    margin-bottom: 8rem;
+}
+
+.heading-paragraph {
+    composes: heading-tertiary;
+    margin-bottom: 1.5rem;
+}

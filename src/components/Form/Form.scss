@@ -1,0 +1,95 @@
+
+@import "../share/variables.scss";
+
+
+.form_group {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.form_input {
+    font-size: inherit;
+    font-family: inherit;
+    color: inherit;
+    padding: 2rem 2rem 1rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, .5);
+    border: none;
+    border-bottom: 3px solid $color-black;
+    width: 100%;
+    display: block;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 1rem 2rem rgba($color-black, .1);
+        border-bottom: 3px solid $color-primary;
+    }
+
+    &:invalid {
+        border-bottom: 3px solid $color-error;
+    }
+
+    &::-webkit-input-placeholder {
+        color: $color-grey-dark-2;
+    }
+}
+
+
+.form_label {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 1s;
+}
+
+.form_label_out {
+    composes: form_label;
+    transform: translateY(-.4rem) scale(0.7);
+}
+
+.form_label_in {
+    composes: form_label;
+    padding: 1.4rem 2rem 1rem 2rem;
+}
+
+.form_radio_group {
+    font-size: 1.5rem;
+    position: relative;
+    display: inline-block;
+    margin-right: 2rem;
+}
+
+.form_radio_input {
+    font-size: 1.5rem;
+    display: none;
+}
+
+.form_radio_label {
+    font-size: $default-font-size;
+    padding-left: 4rem;
+}
+
+.form_radio_imitator {
+    width: 3rem;
+    height: 3rem;
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    background-color: $color-white;
+}
+
+.form_radio_input:checked ~ .form_radio_label .form_radio_imitator::after {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: $color-primary;
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

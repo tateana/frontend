@@ -1,0 +1,42 @@
+@import "../../components/share/variables.scss";
+@import "../../components/share/typography.scss";
+@import "../../components/share/mixins.scss";
+
+.main {
+    margin-top: 10rem;
+    position: relative;
+}
+
+.heading {
+    composes: heading-secondary;
+    margin-bottom: 8rem;
+}
+
+.shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    background-color: brown;
+    shape-outside: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    margin-right: 3rem;
+}
+
+.shape img {
+    height: 100%;
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: .15;
+
+    & > video {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}

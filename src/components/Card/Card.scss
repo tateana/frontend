@@ -1,0 +1,57 @@
+@import "../../components/share/variables.scss";
+@import "../../components/share/typography.scss";
+@import "../../components/share/mixins.scss";
+
+.default {
+    background-color: rgba($color-white, .8);
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
+
+.move-toward {
+    composes: default;
+    height: 100%;
+    text-align: center;
+    transition: transform .3s;
+    &:hover {
+        transform: translateY(-2rem) scale(1.05);
+        box-shadow: 0 3rem 8rem rgba($color-black, .2);
+    }
+}
+
+.wide {
+    composes: default;
+    width: 75%;
+    margin: 0 auto;
+    transform: skewX(-12deg);
+
+    & > * {
+        transform: skewX(12deg);
+    }
+
+    & .content {
+        padding: 6rem;
+    }
+}
+
+.header {
+    composes: heading-tertiary;
+    margin-bottom: 1.5rem;
+}
+
+.content {
+    padding: 1.5rem;
+    font-size: $default-font-size;
+}
+
+.expand-btn-box {
+    @include clearfix;
+}
+
+.expand-btn {
+    float: right;
+    cursor: pointer;
+}

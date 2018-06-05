@@ -1,0 +1,21 @@
+@import "../../components/share/mixins.scss";
+@import "../../components/share/variables.scss";
+
+.default {
+    color: $color-grey-dark; 
+}
+
+.primary {
+    @include gradient-text(); 
+}
+
+.big {
+    font-size: 6rem;
+    margin-bottom: .5rem;
+}
+
+.small {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+}
+

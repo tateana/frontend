@@ -34,7 +34,7 @@ module.exports = {
           loader : 'babel-loader',
       },
       {
-        test: /\.(png|jpg|gif|svg)$/,
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|mp4|webm)$/,
         use: [
           {
             loader: 'file-loader',
@@ -48,7 +48,7 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader, //kind of style-loader
+          MiniCssExtractPlugin.loader, //replacement for ExtractTextPlugin in webpack 4
           {
             loader: 'css-loader',
             options: {
@@ -63,9 +63,25 @@ module.exports = {
         ]
       },
       {
-        test : /\.cssold$/,
-        loader:"css-loader"
-      }
+        test: /\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader, //replacement for ExtractTextPlugin in webpack 4
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              modules: true,
+              localIdentName: "[name]__[local]___[hash:base64:5]"
+            }
+          },
+          {
+            loader: 'postcss-loader',
+          },
+          {
+            loader: 'sass-loader',
+          }
+        ]
+      },
     ],
   },
   stats: {

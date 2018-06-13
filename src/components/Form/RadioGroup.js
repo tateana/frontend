@@ -1,38 +1,35 @@
 import React, {Component} from "react";
-import { Text, Field, withField } from 'react-form';
+import {withField} from 'react-form';
 
 import CssModules from 'react-css-modules';
 import styles from './Form.scss'
 
 
-class TextField extends Component {
+class RadioGroup extends Component {
     constructor(props) {
         super(props);
-
-        this.state = {labelPosition: this.props.defaultValue? "out": "in"};     
-        this.handleInputChange = this.handleInputChange.bind(this);
-        this.handleInputFocusIn = this.handleInputFocusIn.bind(this);
-        this.handleInputFocusOut = this.handleInputFocusOut.bind(this);
-    }
-
-    handleInputChange(event) {
-        const value = event.target.value
-        this.props.fieldApi.setValue(value)
-        // this.setState({value: value});   
-    }
-
-    handleInputFocusIn(event) {
-        this.setState({labelPosition: "out"});
-    }
-
-    handleInputFocusOut(event) {
-        this.props.fieldApi.setTouched()
-        if (!event.target.value) {
-            this.setState({labelPosition: "in"});
-        }
+        this.props.fieldApi.setValue(this.props.value)
     }
 
     render () {
+        const {children, fieldApi, ...other} = this.props;
+        const extendedChildren = React.Children.map(children, child =>
+            React.cloneElement(child, { 
+                radioGroup: {
+                    ...fieldApi
+                },
+            })
+        );
+
+        return (
+            <div styleName="group">
+                {extendedChildren}
+            </div>
+        )
+    }
+
+
+    renderold () {
         let { fieldApi: { value, fieldName, error, touched, setTouched}, onChange, onBlur, label,  name, id, validate, ...other } = this.props
         if(!value && value !== 0) {
             value = ''
@@ -59,12 +56,12 @@ class TextField extends Component {
                     <label htmlFor={id} styleName={"label_" + this.state.labelPosition}>{label}</label>
                 )}
                 <input {...other} id={id} name={name} styleName={"input"} onChange = {this.handleInputChange} onBlur={this.handleInputFocusOut} onFocus={this.handleInputFocusIn} value={value} />
-                <p styleName="helper">
-                    {(error && touched)? error : ''}
-                </p>
+                {error && touched && (
+                    <p styleName="helper">{error}</p>
+                )}
           </div>
         )
     }
 }
 
-export default withField(CssModules(TextField, styles));
+export default withField(CssModules(RadioGroup, styles));

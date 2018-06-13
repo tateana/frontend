@@ -1,7 +1,7 @@
 @import "../share/variables.scss";
 
 .btn {
-    &,
+    .btn,
     &:link,
     &:visited {
         text-transform: uppercase;
@@ -37,6 +37,7 @@
 }
 
 .primary {
+    &,
     &:link,
     &:visited {
         color: $color-primary;
@@ -53,6 +54,7 @@
         color: $color-white;
         transform: translateY(-2px);
         box-shadow: 0 1rem 2rem rgba($color-black, .15);
+        border-bottom: 1px solid $color-primary;
     }
 
     &:active {

@@ -2,12 +2,12 @@
 @import "../share/variables.scss";
 
 
-.form_group {
+.group {
     margin-bottom: 2rem;
     position: relative;
 }
 
-.form_input {
+.input {
     font-size: inherit;
     font-family: inherit;
     color: inherit;
@@ -15,18 +15,17 @@
     border-radius: 2px;
     background-color: rgba($color-white, .5);
     border: none;
-    border-bottom: 3px solid $color-black;
+    border-bottom: 3px solid $color-grey-dark;
     width: 100%;
     display: block;
 
     &:focus {
         outline: none;
         box-shadow: 0 1rem 2rem rgba($color-black, .1);
-        border-bottom: 3px solid $color-primary;
     }
 
-    &:invalid {
-        border-bottom: 3px solid $color-error;
+    &:invalid  {
+        border-bottom-color: $color-error;
     }
 
     &::-webkit-input-placeholder {
@@ -34,8 +33,15 @@
     }
 }
 
+.error .input  {
+    border-bottom-color: $color-error;
+}
 
-.form_label {
+.success .input  {
+    border-bottom-color: $color-success;
+}
+
+.label {
     display: block;
     position: absolute;
     top: 0;
@@ -43,34 +49,46 @@
     transition: all 1s;
 }
 
-.form_label_out {
-    composes: form_label;
+.helper {
+    font-size: $small-font-size;
+    padding-left: 1.4rem;
+    color: $color-grey-dark;
+    min-height: 2rem;
+}
+
+.error .helper  {
+    color: $color-error;
+}
+
+
+.label_out {
+    composes: label;
     transform: translateY(-.4rem) scale(0.7);
 }
 
-.form_label_in {
-    composes: form_label;
+.label_in {
+    composes: label;
     padding: 1.4rem 2rem 1rem 2rem;
 }
 
-.form_radio_group {
+.radio_group {
     font-size: 1.5rem;
     position: relative;
     display: inline-block;
     margin-right: 2rem;
 }
 
-.form_radio_input {
+.radio_input {
     font-size: 1.5rem;
     display: none;
 }
 
-.form_radio_label {
+.radio_label {
     font-size: $default-font-size;
     padding-left: 4rem;
 }
 
-.form_radio_imitator {
+.radio_imitator {
     width: 3rem;
     height: 3rem;
     border: 5px solid $color-primary;
@@ -81,7 +99,7 @@
     background-color: $color-white;
 }
 
-.form_radio_input:checked ~ .form_radio_label .form_radio_imitator::after {
+.radio_input:checked ~ .radio_label .radio_imitator::after {
     width: 1.5rem;
     height: 1.5rem;
     border-radius: 50%;

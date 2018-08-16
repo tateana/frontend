@@ -49,7 +49,7 @@ https://www.npmjs.com/package/react-css-modules
 
 https://github.com/tj/frontend-boilerplate
 
-Material design
+## Material design
 https://material.io/design/
 
 implementation MATERIAL DESIGN LITE
@@ -60,7 +60,7 @@ implementation with react Material-UI
 https://material-ui-next.com/demos/cards/
 https://github.com/mui-org/material-ui/
 
-Webpack configs
+## Webpack configs
 https://webpack.js.org/loaders/css-loader/
 
 ##autoprefixer
@@ -71,3 +71,19 @@ http://browserl.ist/?q=
 ##form
 https://www.npmjs.com/package/validator
 https://github.com/react-tools/react-form
+
+## project structure
+https://jaysoo.ca/2016/02/28/organizing-redux-application/
+https://jaysoo.ca/2016/02/28/applying-code-organization-rules-to-concrete-redux-code/
+src
+├── Layout
+│   ├── Header
+│   │   ├── Logo.jsx    
+│   │   ├── styled.js
+│   │   ├── container.js
+│   │   └── index.js
+│   └── LeftPanel
+│       ├── LeftPanel.jsx
+│       ├── styled.js
+│       └── index.js
+└── index.js
